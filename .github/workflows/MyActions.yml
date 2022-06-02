@@ -7,31 +7,20 @@ on:
     branches: [ main ]
 
 jobs:
-  check:
+  test_1:
     runs-on: ubuntu-latest
     
     steps:
-    - name: black
-      run: black --check ./
-    - name: flake8
-      run: flake8 ./
-    - name: isort
-      run: isort --check-only ./
-    - name: print
-      run: echo 'Complete check files'
+    - name: print_1
+      run: echo "Hello GitHub Actions!"
       
-  fix:
+  test_2:
     runs-on: ubuntu-latest
     
     steps:
-    - name: black
-      run: black ./
-    - name: flake8
-      run: flake8 ./
-    - name: isort
-      run: isort ./
-    - name: print
-      run: echo 'Complete fix files'
+    - name: print_2
+      run: echo "Nice work!"
+
       
       
       
