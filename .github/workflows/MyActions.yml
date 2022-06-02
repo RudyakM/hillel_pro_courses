@@ -7,19 +7,23 @@ on:
     branches: [ main ]
 
 jobs:
-  test_1:
+  editor:
     runs-on: ubuntu-latest
     
     steps:
-    - name: print_1
-      run: echo "Hello GitHub Actions!"
+    
+    - name: Clone repository
+      uses: actions/checkout@v1 
       
-  test_2:
-    runs-on: ubuntu-latest
+    - name: check
+      run : black --check ./ && isort --check-only ./ && flake8 ./
+      
+    - name: fix
+      run : black ./ && isort ./ && flake8 ./
     
-    steps:
-    - name: print_2
-      run: echo "Nice work!"
+
+    
+
 
       
       
