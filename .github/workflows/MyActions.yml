@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  editor:
+  code-editor:
     runs-on: ubuntu-latest
     
     steps:
@@ -15,11 +15,23 @@ jobs:
     - name: Clone repository
       uses: actions/checkout@v1 
       
+    - name: install black
+      run : pip install black
+     
+    - name: install flake8
+      run : pip install flake8
+    
+    - name: install isort
+      run : pip install isort
+    
     - name: check
       run : black --check ./ && isort --check-only ./ && flake8 ./
       
     - name: fix
       run : black ./ && isort ./ && flake8 ./
+      
+    - name: end
+      run : echo "Program work!"
     
 
     
