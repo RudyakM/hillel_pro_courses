@@ -24,7 +24,7 @@ jobs:
     - name: fix
       run : black ./ && isort ./ && flake8 ./
       
-    - name: end
+    - name: Program work!
       run : echo "Program work!"
     
 
