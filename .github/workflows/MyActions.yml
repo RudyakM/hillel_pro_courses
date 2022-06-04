@@ -17,8 +17,6 @@ jobs:
       
     - name: install 
       run : pip install -r requirements.txt
-    with:
-      cache: "requiments.txt"
       
     - name: check
       run : black --check ./ && isort --check-only ./ && flake8 ./
