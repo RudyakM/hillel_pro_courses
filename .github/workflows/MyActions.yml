@@ -17,15 +17,10 @@ jobs:
       
     - name: install 
       run : pip install -r requirements.txt
-    
-    - name: check
-      run : black --check ./ && isort --check-only ./ && flake8 ./
       
     - name: fix
       run : black ./ && isort ./ && flake8 ./
       
-    - name: Program work!
-      run : echo "Program work!"
     
 
     
