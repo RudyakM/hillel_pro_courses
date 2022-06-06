@@ -1,4 +1,4 @@
-filename = "rockyou.txt"
+filename = "./lesson_4_iter_gener_functions/homework/rockyou.txt"
 search_keyboard = "user"
 result = []
 
