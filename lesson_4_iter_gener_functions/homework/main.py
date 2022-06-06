@@ -1,9 +1,11 @@
+from typing import Generator
+
 filename = "./lesson_4_iter_gener_functions/homework/rockyou.txt"
 search_keyboard = "user"
 result = []
 
 
-def read_lines() -> list:
+def read_lines() -> Generator:
     with open(filename, encoding="utf8") as file:
         while True:
             line = file.readline()
@@ -11,7 +13,7 @@ def read_lines() -> list:
                 break
             if search_keyboard in line:
                 user_input = input(
-                    f"You want add --> {line}in results (y/n) or (skip all): "
+                    f"\nYou want add --> {line}in results (y/n) or (skip all): "
                 )
                 if user_input == "y":
                     yield line.replace("\n", "")
