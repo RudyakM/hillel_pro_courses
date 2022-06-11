@@ -8,7 +8,7 @@ on:
 
 jobs:
   code-editor:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu 20.04
     
     steps:
     
