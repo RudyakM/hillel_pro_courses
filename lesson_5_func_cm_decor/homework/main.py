@@ -30,15 +30,12 @@ def log(message: str) -> None:
 
 def add_player(num: int, name: str, age: int) -> None:
     player = {"name": name, "number": num, "age": age}
-    numer = False
-    for nums in team:
-        if nums["number"] == player["number"]:
-            numer = True
-    if numer is True:
-        print(log(message="You can't add this player"))
-    else:
-        team.append(player)
-        log(message=f"Adding {player['name']}")
+    if num in {player["num"] for player in team}:
+        print(log(message="You can't add player with the same number"))
+        return
+
+    team.append(player)
+    log(message=f"Player {player['name']} added")
 
 
 def remove_player(players: list[dict], num: int) -> None:
@@ -46,7 +43,8 @@ def remove_player(players: list[dict], num: int) -> None:
         if player["number"] == num:
             player_name = player["name"]
             del players[index]
-            log(message=f"Deleting {player_name}")
+            log(message=f"Player {player_name} removed")
+            return
 
 
 def update_player(num: int) -> None:
