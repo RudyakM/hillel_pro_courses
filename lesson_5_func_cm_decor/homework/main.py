@@ -5,17 +5,19 @@ team: list[dict] = [
 ]
 
 
-def repr_players(players: list[dict], sorter: bool, key=lambda x: x["number"]) -> None:
+def repr_players(players: list[dict], sorter: bool, key=lambda x: x['number']) -> None:
     print("TEAM:")
     if sorter:
         for player in sorted(players, key=key):
             print(
-                f"\t{player['number']} " f"Name: {player['name']}, Age: {player['age']}"
+                f"\t{player['number']} "
+                f"Name: {player['name']}, Age: {player['age']}"
             )
     else:
         for player in players:
             print(
-                f"\t{player['number']} " f"Name: {player['name']}, Age: {player['age']}"
+                f"\t{player['number']} "
+                f"Name: {player['name']}, Age: {player['age']}"
             )
     print("\n")
 
@@ -47,18 +49,16 @@ def remove_player(players: list[dict], num: int) -> None:
 
 def update_player(num: int) -> None:
     for player in team:
-        if player["number"] == num:
-            nums = int(input("Enter a new player number: "))
-            player["number"] = nums
-            name = input("Enter a new player name: ")
-            player["name"] = name
-            age = input("Enter a new player age: ")
-            player["age"] = age
+        if player['number'] == num:
+            player.update()
+            player = {"name": player["name"], "age": player["age"], "number": player["number"]}
+            team.append(player)
 
 
 # =====================================================
 def main():
-    pass
+    add_player(13,'Stiven',12)
+    repr_players(team, False)
 
 
 # =====================================================
@@ -67,3 +67,4 @@ if __name__ == "__main__":
     main()
 else:
     raise SystemExit("This module in only for running")
+
