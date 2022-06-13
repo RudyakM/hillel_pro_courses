@@ -5,11 +5,11 @@ team: list[dict] = [
 ]
 
 
-def repr_players(players: list[dict],
-                 sorter: bool, key=lambda x: x["number"]) -> None:
+def repr_players(players: list[dict], sorter: bool,
+                 keyer=lambda x: x["number"]) -> None:
     print("TEAM:")
     if sorter:
-        for player in sorted(players, key=key):
+        for player in sorted(players, key=keyer):
             print(
                 f"\t{player['number']} \
                 Name: {player['name']}, Age: {player['age']}"
