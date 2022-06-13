@@ -10,12 +10,16 @@ def repr_players(players: list[dict],
     print("TEAM:")
     if sorter:
         for player in sorted(players, key=key):
-            print(f"\t{player['number']}", end=' ')
-            print(f"Name: {player['name']}, Age: {player['age']}")
+            print(
+                f"\t{player['number']} \
+                Name: {player['name']}, Age: {player['age']}"
+            )
     else:
         for player in players:
-            print(f"\t{player['number']}", end=' ')
-            print(f"Name: {player['name']}, Age: {player['age']}")
+            print(
+                f"\t{player['number']} \
+                Name: {player['name']}, Age: {player['age']}"
+            )
     print("\n")
 
 
@@ -24,13 +28,12 @@ def log(message: str) -> None:
 
 
 def add_player(num: int, name: str, age: int) -> None:
-    player = {"name": name, "number": num, "age": age}
-    if num in {player["num"] for player in team}:
-        print(log(message="You can't add player with the same number"))
-        return
-
-    team.append(player)
-    log(message=f"Player {player['name']} added")
+    new_player = {"name": name, "number": num, "age": age}
+    if new_player["number"] in [player["number"] for player in team]:
+        log(message="Number is being used by other players")
+    else:
+        team.append(new_player)
+        log(message=f"Adding {new_player['name']}")
 
 
 def remove_player(players: list[dict], num: int) -> None:
