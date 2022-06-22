@@ -15,16 +15,14 @@ class Rectangle(Shape):
             if i != 1:
                 for j in range(breadth):
                     print("-", end="")
-                    if j == breadth - 1:
-                        print()
+                print()
             else:
                 for j in range(breadth):
                     if j == 0 or j == breadth - 1:
                         print("|", end="")
                     else:
-                        print(" ", end="")
-                    if j == breadth - 1:
-                        print()
+                        print(' ', end='')
+                print()
 
 
 class Circle(Shape):
@@ -37,16 +35,14 @@ class Circle(Shape):
                         print(" ", end="")
                     else:
                         print("-", end="")
-                    if j == (breadth - 1):
-                        print()
+                print()
             else:
                 for j in range(breadth):
                     if j == 0 or j == (breadth - 1):
                         print("-", end="")
                     else:
                         print(" ", end="")
-                    if j == (breadth - 1):
-                        print()
+                print()
 
 
 def get_shape() -> Shape:
