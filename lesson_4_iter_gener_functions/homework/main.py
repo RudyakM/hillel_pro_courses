@@ -12,9 +12,7 @@ def read_lines() -> Generator:
             if not line:
                 break
             if search_keyboard in line:
-                user_input = input(
-                    f"\nYou want add --> {line}in results (y/n or skip):"
-                )
+                user_input = input(f"\nYou want add --> {line}in results (y/n or skip):")
                 if user_input == "y":
                     yield line.replace("\n", "")
                 elif user_input == "skip":
