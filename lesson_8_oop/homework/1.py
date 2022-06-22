@@ -12,7 +12,7 @@ class Rectangle(Shape):
     def draw(self):
         length, breadth = 3, 4
         for i in range(length):
-            if i != 1:
+            if i == 0 or i == (length - 1):
                 for j in range(breadth):
                     print("-", end="")
                 print()
@@ -29,7 +29,7 @@ class Circle(Shape):
     def draw(self):
         length, breadth = 3, 4
         for i in range(length):
-            if i != 1:
+            if i == 0 or i == (length - 1):
                 for j in range(breadth):
                     if j == 0 or j == (breadth - 1):
                         print(" ", end="")
