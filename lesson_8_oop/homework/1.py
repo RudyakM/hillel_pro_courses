@@ -21,7 +21,7 @@ class Rectangle(Shape):
                     if j == 0 or j == breadth - 1:
                         print("|", end="")
                     else:
-                        print(' ', end='')
+                        print(" ", end="")
                 print()
 
 
