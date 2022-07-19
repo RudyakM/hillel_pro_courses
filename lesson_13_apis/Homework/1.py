@@ -37,17 +37,17 @@ async def get_rand_pokemon(my_session, get_random_pokemon_url):
 
 
 async def main():
-    
-    print('Running' + '.' * 30)
-    
+
+    print("Running" + "." * 30)
+
     async with aiohttp.ClientSession() as my_session:
-        
+
         tasks = []
         for _ in range(SIZE):
             random_pokemon_url = get_random_pokemon_url()
             tasks.append(asyncio.create_task(get_rand_pokemon(my_session, random_pokemon_url)))
         pokemons = await asyncio.gather(*tasks)
-    
+
     print(f"All names of random pokemons: {pokemons}")
 
 
